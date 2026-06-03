@@ -50,6 +50,8 @@ export default defineEventHandler(async (event) => {
 
   const hostname = new URL(url).hostname.replace(/^www\./, '').replaceAll('.', '-')
 
+  const heartbeat = setInterval(() => res.write(': keepalive\n\n'), 15_000)
+
   try {
     const {
       pdfCount,
@@ -91,6 +93,8 @@ export default defineEventHandler(async (event) => {
     })
   } catch (err) {
     send({ type: 'error', message: err instanceof Error ? err.message : 'Binding failed' })
+  } finally {
+    clearInterval(heartbeat)
   }
 
   res.end()
