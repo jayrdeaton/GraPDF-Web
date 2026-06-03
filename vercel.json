@@ -3,10 +3,5 @@
     "deploymentEnabled": false
   },
   "framework": "nuxtjs",
-  "buildCommand": "npm run build",
-  "functions": {
-    "src/server/api/bind.get.ts": {
-      "maxDuration": 300
-    }
-  }
+  "buildCommand": "npm run build"
 }
