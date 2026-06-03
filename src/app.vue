@@ -59,21 +59,21 @@
         <!-- URL -->
         <div class="mb-5">
           <label for="url-input" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Page URL</label>
-          <input id="url-input" v-model="url" type="url" placeholder="https://example.com/documents" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+          <input id="url-input" v-model="url" type="url" placeholder="https://example.com/documents" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-4 py-2.5 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
         </div>
 
         <!-- Quick options -->
         <div class="flex flex-wrap gap-x-5 gap-y-3 mb-5 items-center">
           <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input v-model="sort" type="checkbox" :disabled="binding" class="w-4 h-4 accent-sky-500 disabled:opacity-50" />
+            <input v-model="sort" type="checkbox" :disabled="binding" class="w-4 h-4 accent-emerald-500 disabled:opacity-50" />
             <span class="text-sm text-gray-700 dark:text-zinc-300">Sort</span>
           </label>
           <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input v-model="reverse" type="checkbox" :disabled="binding" class="w-4 h-4 accent-sky-500 disabled:opacity-50" />
+            <input v-model="reverse" type="checkbox" :disabled="binding" class="w-4 h-4 accent-emerald-500 disabled:opacity-50" />
             <span class="text-sm text-gray-700 dark:text-zinc-300">Reverse</span>
           </label>
           <label class="flex items-center gap-2 cursor-pointer select-none">
-            <input v-model="autoDownload" type="checkbox" :disabled="binding" class="w-4 h-4 accent-sky-500 disabled:opacity-50" />
+            <input v-model="autoDownload" type="checkbox" :disabled="binding" class="w-4 h-4 accent-emerald-500 disabled:opacity-50" />
             <span class="text-sm text-gray-700 dark:text-zinc-300">Auto-download</span>
           </label>
           <button :disabled="binding" class="flex items-center gap-1 text-sm text-gray-500 dark:text-zinc-400 hover:text-gray-700 dark:hover:text-zinc-200 disabled:opacity-50 transition-colors" @click="showAdvanced = !showAdvanced">
@@ -88,34 +88,39 @@
         <div v-if="showAdvanced" class="grid sm:grid-cols-2 gap-4 mb-5 pt-4 border-t border-gray-100 dark:border-zinc-800">
           <div>
             <label for="limit" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Limit</label>
-            <input id="limit" v-model.number="limitValue" type="number" min="1" placeholder="No limit" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="limit" v-model.number="limitValue" type="number" min="1" placeholder="No limit" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
           <div>
             <label for="trim" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Trim <span class="font-normal text-gray-400 dark:text-zinc-500">(pts)</span></label>
-            <input id="trim" v-model.number="trim" type="number" min="0" max="200" placeholder="0" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="trim" v-model.number="trim" type="number" min="0" max="200" placeholder="0" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
           <div>
             <label for="selector" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">CSS selector</label>
-            <input id="selector" v-model="selector" type="text" placeholder=".content" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="selector" v-model="selector" type="text" placeholder=".content" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
           <div>
             <label for="include" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Include <span class="font-normal text-gray-400 dark:text-zinc-500">(regex)</span></label>
-            <input id="include" v-model="include" type="text" placeholder="chapter-\d+" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="include" v-model="include" type="text" placeholder="chapter-\d+" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
           <div>
             <label for="exclude" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Exclude <span class="font-normal text-gray-400 dark:text-zinc-500">(regex)</span></label>
-            <input id="exclude" v-model="exclude" type="text" placeholder="appendix" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="exclude" v-model="exclude" type="text" placeholder="appendix" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
           <div>
             <label for="preview-pages" class="block text-sm font-medium text-gray-500 dark:text-zinc-400 mb-1.5">Preview pages</label>
-            <input id="preview-pages" v-model.number="previewPages" type="number" min="1" placeholder="All pages" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-sky-500 disabled:opacity-50 transition-colors" />
+            <input id="preview-pages" v-model.number="previewPages" type="number" min="1" placeholder="All pages" :disabled="binding" class="w-full bg-gray-50 dark:bg-zinc-950 border border-gray-300 dark:border-zinc-700 rounded-lg px-3 py-2 text-sm placeholder-gray-400 dark:placeholder-zinc-600 focus:outline-none focus:border-emerald-500 disabled:opacity-50 transition-colors" />
           </div>
         </div>
 
         <!-- Submit / Cancel -->
-        <button v-if="!binding" :disabled="!url.trim()" class="w-full bg-sky-500 hover:bg-sky-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">
-          Bind PDFs
-        </button>
+        <div v-if="!binding" class="flex gap-2">
+          <button :disabled="!url.trim() || previewing" class="flex-none px-5 py-3 border border-gray-300 dark:border-zinc-700 hover:border-gray-400 dark:hover:border-zinc-600 disabled:opacity-50 text-gray-600 dark:text-zinc-300 text-sm font-medium rounded-lg transition-colors" @click="previewUrls">
+            {{ previewing ? 'Scanning…' : 'Preview URLs' }}
+          </button>
+          <button :disabled="!url.trim() || previewing" class="flex-1 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">
+            Bind PDFs
+          </button>
+        </div>
         <button v-else class="w-full bg-red-500 hover:bg-red-400 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="cancel">
           Cancel
         </button>
@@ -146,7 +151,7 @@
             'flex items-center gap-3 px-5 py-3 cursor-pointer transition-colors',
             index < history.length - 1 ? 'border-b border-gray-100 dark:border-zinc-800' : '',
             activePreviewId === item.id
-              ? 'bg-sky-50 dark:bg-sky-950/30'
+              ? 'bg-emerald-50 dark:bg-emerald-950/30'
               : 'hover:bg-gray-50 dark:hover:bg-zinc-800/50'
           ]"
           @click="activePreviewId = item.id"
@@ -201,14 +206,14 @@
 
         <!-- Options -->
         <div class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl p-5 mb-10 font-mono text-sm text-gray-700 dark:text-zinc-300 leading-7 shadow-sm dark:shadow-none">
-          <p><span class="text-sky-500 dark:text-sky-400">--sort</span> Sort PDFs alphabetically by URL</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--reverse</span> Reverse the order before merging</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--limit</span> <span class="text-gray-400 dark:text-zinc-500">n</span> Maximum number of PDFs to include</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--selector</span> <span class="text-gray-400 dark:text-zinc-500">css</span> CSS selector to scope link search</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--include</span> <span class="text-gray-400 dark:text-zinc-500">regex</span> Include only matching PDF URLs</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--exclude</span> <span class="text-gray-400 dark:text-zinc-500">regex</span> Exclude matching PDF URLs</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--trim</span> <span class="text-gray-400 dark:text-zinc-500">pts</span> Crop all four sides by N points</p>
-          <p><span class="text-sky-500 dark:text-sky-400">--dry-run</span> Preview PDF URLs without downloading</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--sort</span> Sort PDFs alphabetically by URL</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--reverse</span> Reverse the order before merging</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--limit</span> <span class="text-gray-400 dark:text-zinc-500">n</span> Maximum number of PDFs to include</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--selector</span> <span class="text-gray-400 dark:text-zinc-500">css</span> CSS selector to scope link search</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--include</span> <span class="text-gray-400 dark:text-zinc-500">regex</span> Include only matching PDF URLs</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--exclude</span> <span class="text-gray-400 dark:text-zinc-500">regex</span> Exclude matching PDF URLs</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--trim</span> <span class="text-gray-400 dark:text-zinc-500">pts</span> Crop all four sides by N points</p>
+          <p><span class="text-emerald-500 dark:text-emerald-400">--dry-run</span> Preview PDF URLs without downloading</p>
         </div>
 
         <!-- Feature cards -->
@@ -252,6 +257,7 @@ const exclude = ref('')
 const trim = ref<number | null>(null)
 const showAdvanced = ref(false)
 const binding = ref(false)
+const previewing = ref(false)
 const progress = ref<string[]>([])
 const progressContainer = ref<HTMLElement | null>(null)
 const error = ref<string | null>(null)
@@ -360,6 +366,36 @@ const cancel = () => {
   eventSource?.close()
   binding.value = false
   progress.value.push('Cancelled.')
+}
+
+const previewUrls = async () => {
+  if (!url.value.trim() || binding.value || previewing.value) return
+
+  previewing.value = true
+  progress.value = []
+  error.value = null
+
+  const params = new URLSearchParams({ url: url.value.trim() })
+  if (sort.value) params.set('sort', 'true')
+  if (reverse.value) params.set('reverse', 'true')
+  if (limitValue.value != null && limitValue.value > 0) params.set('limit', String(limitValue.value))
+  if (selector.value.trim()) params.set('selector', selector.value.trim())
+  if (include.value.trim()) params.set('include', include.value.trim())
+  if (exclude.value.trim()) params.set('exclude', exclude.value.trim())
+
+  try {
+    const data = await $fetch<{ urls: string[] }>(`/api/urls?${params.toString()}`)
+    const n = data.urls.length
+    if (n === 0) {
+      progress.value = ['No PDF URLs found.']
+    } else {
+      progress.value = [`Found ${n} PDF URL${n !== 1 ? 's' : ''}:`, ...data.urls]
+    }
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Failed to fetch URLs.'
+  } finally {
+    previewing.value = false
+  }
 }
 
 const bind = () => {
