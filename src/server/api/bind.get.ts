@@ -51,7 +51,11 @@ export default defineEventHandler(async (event) => {
   const hostname = new URL(url).hostname.replace(/^www\./, '').replaceAll('.', '-')
 
   try {
-    const { pdfCount, attempted, bytes: rawBytes } = await buildBooklet(url, {
+    const {
+      pdfCount,
+      attempted,
+      bytes: rawBytes
+    } = await buildBooklet(url, {
       sort,
       reverse,
       limit,

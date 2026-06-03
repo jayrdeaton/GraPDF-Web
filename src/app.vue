@@ -117,13 +117,9 @@
           <button :disabled="!url.trim() || previewing" class="flex-none px-5 py-3 border border-gray-300 dark:border-zinc-700 hover:border-gray-400 dark:hover:border-zinc-600 disabled:opacity-50 text-gray-600 dark:text-zinc-300 text-sm font-medium rounded-lg transition-colors" @click="previewUrls">
             {{ previewing ? 'Scanning…' : 'Preview URLs' }}
           </button>
-          <button :disabled="!url.trim() || previewing" class="flex-1 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">
-            Bind PDFs
-          </button>
+          <button :disabled="!url.trim() || previewing" class="flex-1 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">Bind PDFs</button>
         </div>
-        <button v-else class="w-full bg-red-500 hover:bg-red-400 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="cancel">
-          Cancel
-        </button>
+        <button v-else class="w-full bg-red-500 hover:bg-red-400 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="cancel">Cancel</button>
       </div>
 
       <!-- Progress terminal — always dark, intentionally -->
@@ -135,7 +131,7 @@
 
       <!-- PDF preview -->
       <div v-if="previewItem" ref="previewContainer" class="mb-6">
-        <iframe :src="previewItem.blobUrl" class="w-full rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm dark:shadow-none" style="height: 520px;" title="PDF preview" />
+        <iframe :src="previewItem.blobUrl" class="w-full rounded-2xl border border-gray-200 dark:border-zinc-800 shadow-sm dark:shadow-none" style="height: 520px" title="PDF preview" />
       </div>
 
       <!-- History -->
@@ -144,18 +140,7 @@
           <span class="text-sm font-medium text-gray-500 dark:text-zinc-400">History</span>
           <button class="text-xs text-gray-400 dark:text-zinc-500 hover:text-red-500 dark:hover:text-red-400 transition-colors" @click="clearHistory">Clear all</button>
         </div>
-        <div
-          v-for="(item, index) in history"
-          :key="item.id"
-          :class="[
-            'flex items-center gap-3 px-5 py-3 cursor-pointer transition-colors',
-            index < history.length - 1 ? 'border-b border-gray-100 dark:border-zinc-800' : '',
-            activePreviewId === item.id
-              ? 'bg-emerald-50 dark:bg-emerald-950/30'
-              : 'hover:bg-gray-50 dark:hover:bg-zinc-800/50'
-          ]"
-          @click="activePreviewId = item.id"
-        >
+        <div v-for="(item, index) in history" :key="item.id" :class="['flex items-center gap-3 px-5 py-3 cursor-pointer transition-colors', index < history.length - 1 ? 'border-b border-gray-100 dark:border-zinc-800' : '', activePreviewId === item.id ? 'bg-emerald-50 dark:bg-emerald-950/30' : 'hover:bg-gray-50 dark:hover:bg-zinc-800/50']" @click="activePreviewId = item.id">
           <!-- PDF icon -->
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-gray-400 dark:text-zinc-500">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -172,13 +157,7 @@
             </div>
           </div>
           <span class="flex-shrink-0 text-xs text-gray-400 dark:text-zinc-500">{{ formatTime(item.timestamp) }}</span>
-          <a
-            :href="item.blobUrl"
-            :download="item.filename"
-            class="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black transition-colors"
-            title="Download"
-            @click.stop
-          >
+          <a :href="item.blobUrl" :download="item.filename" class="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black transition-colors" title="Download" @click.stop>
             <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
@@ -310,8 +289,7 @@ const clearHistory = () => {
   activePreviewId.value = null
 }
 
-const formatTime = (date: Date): string =>
-  date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+const formatTime = (date: Date): string => date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
 const formatSize = (bytes: number): string => {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`
