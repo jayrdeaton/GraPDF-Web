@@ -117,7 +117,7 @@
           <button :disabled="!url.trim() || previewing" class="flex-none px-5 py-3 border border-gray-300 dark:border-zinc-700 hover:border-gray-400 dark:hover:border-zinc-600 disabled:opacity-50 text-gray-600 dark:text-zinc-300 text-sm font-medium rounded-lg transition-colors" @click="previewUrls">
             {{ previewing ? 'Scanning…' : 'Preview URLs' }}
           </button>
-          <button :disabled="!url.trim() || previewing" class="flex-1 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">Bind PDFs</button>
+          <button :disabled="!url.trim() || previewing" class="flex-1 bg-emerald-500 hover:bg-emerald-400 disabled:bg-gray-100 dark:disabled:bg-zinc-800 disabled:text-gray-400 dark:disabled:text-zinc-600 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="bind">Grab PDFs</button>
         </div>
         <button v-else class="w-full bg-red-500 hover:bg-red-400 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="cancel">Cancel</button>
       </div>
