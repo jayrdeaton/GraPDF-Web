@@ -8,14 +8,13 @@ const pluginVue = require('eslint-plugin-vue')
 
 module.exports = defineConfig([
   {
-    ignores: ['.nuxt/**', '.output/**', 'node_modules/**', 'coverage/**', '**/*.mjs', '**/*.cjs']
+    ignores: ['.nuxt/**', '.output/**', 'node_modules/**', 'coverage/**', 'dist/**', '**/*.mjs', '**/*.cjs']
   },
   {
     files: ['**/*.ts'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        projectService: { allowDefaultProject: ['vitest.config.ts'] },
         extraFileExtensions: ['.vue']
       }
     }
@@ -26,7 +25,6 @@ module.exports = defineConfig([
       parser: vueParser,
       parserOptions: {
         parser: tsParser,
-        projectService: { allowDefaultProject: ['vitest.config.ts'] },
         extraFileExtensions: ['.vue']
       }
     }
