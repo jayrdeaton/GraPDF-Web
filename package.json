@@ -26,8 +26,9 @@
   },
   "dependencies": {
     "@nuxtjs/color-mode": "^4.0.0",
-    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@tailwindcss/vite": "^4.3.0",
     "grapdf": "^1.0.5",
+    "tailwindcss": "^4.3.0",
     "nuxt": "^4.4.6",
     "vue": "^3.5.13",
     "vue-router": "^5.1.0"

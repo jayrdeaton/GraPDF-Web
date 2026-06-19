@@ -1,13 +1,17 @@
 import { readFileSync } from 'node:fs'
 
 import type {} from './.nuxt/nuxt.node.d.ts'
+import tailwindcss from '@tailwindcss/vite'
 const pkg: { displayName: string; description: string } = JSON.parse(readFileSync('./package.json', 'utf-8'))
 export default defineNuxtConfig({
   compatibilityDate: '2025-11-01',
   srcDir: 'src',
   serverDir: 'src/server',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@vite-pwa/nuxt'],
+  modules: ['@nuxtjs/color-mode', '@vite-pwa/nuxt'],
+  vite: {
+    plugins: [tailwindcss()]
+  },
   colorMode: {
     classSuffix: ''
   },
