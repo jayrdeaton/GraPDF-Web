@@ -3,7 +3,7 @@
     <div class="fixed inset-x-0 top-0 z-50 bg-white dark:bg-zinc-900" style="height: env(safe-area-inset-top)" aria-hidden="true" />
     <div class="fixed inset-x-0 z-30 bg-gray-200 dark:bg-zinc-800" style="top: env(safe-area-inset-top); height: 1px" aria-hidden="true" />
     <div class="fixed inset-x-0 bottom-0 z-30 bg-gray-200 dark:bg-zinc-800" style="height: 1px" aria-hidden="true" />
-    <div class="min-h-screen bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 flex flex-col" :class="{ 'transition-colors duration-200': mounted }">
+    <div class="min-h-dvh bg-gray-50 dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 flex flex-col" :class="{ 'transition-colors duration-200': mounted }">
       <!-- Header -->
       <header class="relative z-40 bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 px-6 pb-4 shrink-0" style="padding-top: calc(1rem + env(safe-area-inset-top))">
         <div class="max-w-3xl mx-auto flex items-center justify-between">
@@ -258,7 +258,7 @@ const progress = ref<string[]>([])
 const progressContainer = ref<HTMLElement | null>(null)
 const error = ref<string | null>(null)
 const autoDownload = ref(true)
-const isPwa = ref(false)
+const { isPwa } = usePwa()
 
 interface HistorySettings {
   sort: boolean
@@ -298,7 +298,6 @@ const mounted = ref(false)
 
 onMounted(() => {
   mounted.value = true
-  isPwa.value = window.matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true
   const stored = localStorage.getItem('autoDownload')
   if (stored !== null) autoDownload.value = stored !== 'false'
 })
