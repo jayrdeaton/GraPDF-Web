@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs'
 
-import type {} from './.nuxt/nuxt.node.d.ts'
 import tailwindcss from '@tailwindcss/vite'
+
+import type {} from './.nuxt/nuxt.node.d.ts'
 const pkg: { displayName: string; description: string } = JSON.parse(readFileSync('./package.json', 'utf-8'))
 export default defineNuxtConfig({
   compatibilityDate: '2025-11-01',
