@@ -184,7 +184,7 @@
         </div>
 
         <!-- Divider -->
-        <div v-if="!isPwa" class="mt-24 pt-12 border-t border-gray-200 dark:border-zinc-800">
+        <div v-if="isMounted && !isPwa" class="mt-24 pt-12 border-t border-gray-200 dark:border-zinc-800">
           <h2 class="text-2xl font-semibold mb-8 text-center">Also available as a CLI</h2>
 
           <!-- Install + Usage -->
@@ -222,7 +222,7 @@
       </main>
 
       <!-- Footer -->
-      <footer v-if="!isPwa" class="relative z-40 bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800 py-6 text-center text-sm text-gray-400 dark:text-zinc-500 shrink-0">
+      <footer v-if="isMounted && !isPwa" class="relative z-40 bg-white dark:bg-zinc-900 border-t border-gray-200 dark:border-zinc-800 py-6 text-center text-sm text-gray-400 dark:text-zinc-500 shrink-0">
         Powered by
         <a href="https://infinitetoken.com" target="_blank" rel="noopener" class="text-gray-500 dark:text-zinc-400 hover:text-gray-700 dark:hover:text-zinc-200 underline underline-offset-2 ml-1 transition-colors">Infinite Token</a>
       </footer>
@@ -258,7 +258,7 @@ const progress = ref<string[]>([])
 const progressContainer = ref<HTMLElement | null>(null)
 const error = ref<string | null>(null)
 const autoDownload = ref(true)
-const { isPwa } = usePwa()
+const { isPwa, isMounted } = usePwa()
 
 interface HistorySettings {
   sort: boolean
