@@ -8,7 +8,6 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "ci": "npm run lint && npm test && npm run typecheck && npm run build",
     "dev": "nuxt dev",
     "fix": "eslint . --fix",
     "generate": "nuxt generate",
@@ -22,7 +21,8 @@
     "test": "NODE_OPTIONS=--no-experimental-webstorage vitest run",
     "test:watch": "NODE_OPTIONS=--no-experimental-webstorage vitest",
     "typecheck": "nuxt typecheck",
-    "preversion": "npm ci && npm run ci"
+    "verify": "npm run lint && npm test && npm run typecheck && npm run build",
+    "preversion": "npm ci && npm run verify"
   },
   "prettier": "@infinitetoken/eslint-config/prettier",
   "overrides": {
