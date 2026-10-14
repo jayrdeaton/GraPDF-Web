@@ -126,7 +126,7 @@
           <button v-else class="w-full bg-red-500 hover:bg-red-400 text-white font-semibold rounded-lg py-3 text-sm transition-colors" @click="cancel">Cancel</button>
         </div>
 
-        <!-- Progress terminal — always dark, intentionally -->
+        <!-- Progress terminal - always dark, intentionally -->
         <div v-if="progress.length > 0 || error" ref="progressContainer" class="bg-black border border-zinc-800 rounded-2xl p-5 mb-6 font-mono text-sm leading-relaxed overflow-auto max-h-64">
           <p v-for="(msg, i) in progress" :key="i" class="text-emerald-400"><span class="text-zinc-600 select-none">› </span>{{ msg }}</p>
           <p v-if="error" class="text-red-400"><span class="text-zinc-600 select-none">✗ </span>{{ error }}</p>
@@ -453,7 +453,7 @@ const bind = () => {
 
   eventSource.onerror = () => {
     if (binding.value) {
-      error.value = 'Connection error — check the URL and try again.'
+      error.value = 'Connection error: check the URL and try again.'
       binding.value = false
     }
     eventSource?.close()
